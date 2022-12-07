@@ -2,25 +2,27 @@
  * This file contains template code.
  * There is no need to edit this file unless you want to change template functionality.
  */
-use std::{
+ use std::{
     fs::{File, OpenOptions},
     io::Write,
     process,
 };
 
-const MODULE_TEMPLATE: &str = r###"pub fn part_one(input: &str) -> Option<u32> {
+const MODULE_TEMPLATE: &str = r###"type Input<'a> = Vec<&'a str>;
+
+fn parse(input: &str) -> Input {
+    input.lines().collect()
+}
+
+pub fn part_one(input: Input) -> Option<u32> {
     None
 }
 
-pub fn part_two(input: &str) -> Option<u32> {
+pub fn part_two(input: Input) -> Option<u32> {
     None
 }
 
-fn main() {
-    let input = &advent_of_code::read_file("inputs", DAY);
-    advent_of_code::solve!(1, part_one, input);
-    advent_of_code::solve!(2, part_two, input);
-}
+advent_of_code::main!(DAY);
 
 #[cfg(test)]
 mod tests {
@@ -28,14 +30,14 @@ mod tests {
 
     #[test]
     fn test_part_one() {
-        let input = advent_of_code::read_file("examples", DAY);
-        assert_eq!(part_one(&input), None);
+        let result = part_one(parse(&advent_of_code::read_file("examples", DAY)));
+        assert_eq!(result, None);
     }
 
     #[test]
     fn test_part_two() {
-        let input = advent_of_code::read_file("examples", DAY);
-        assert_eq!(part_two(&input), None);
+        let result = part_two(parse(&advent_of_code::read_file("examples", DAY)));
+        assert_eq!(result, None);
     }
 }
 "###;
