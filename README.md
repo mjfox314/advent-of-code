@@ -1,4 +1,6 @@
-<img src="./.assets/christmas_ferris.png" width="164">
+<div align="center>
+    <img src="./.assets/christmas_ferris.png" width="164">
+</div>
 
 # 🎄 Advent of Code {year}
 
